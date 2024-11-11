@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <p><a href="http://127.0.0.1:8000/">Главная страница</a></p>
+  <p>Основы Джанго</p>
+  <p>django-admin startproject mysite</p>
+  <p>python manage.py startapp shopapp</p>
+  <p>Откройте файл settings.py в папке mysite/mysite и добавьте 'shopapp' в список установленных приложений</p>
+  <p>В папке shopapp создаем папку templates(обязательно «templates»).
+    В этой папке templates создаем папку shopapp(название по названию приложения из пункта 6).
+    В этой папке shopapp/templates/shopapp/ создайте файл index.html.</p>
+  <p>В файле views.py в папке shopapp/ добавьте следующий код:
+    from django.shortcuts import render
+    def index(request):
+        return render(request, 'shopapp/index.html')</p>
+  <p>Откройте файл urls.py в папке mysite/mysite. Удалите старый код и добавьте следующий код:
+      from django.contrib import admin
+      from django.urls import include, path
+      urlpatterns = [path('admin/', admin.site.urls),
+          path('', include('shopapp.urls')),]</p>
+  <p>Создайте файл urls.py в папке shopapp/ и добавьте следующий код:
+      from django.urls import path
+      from . import views
+      urlpatterns = [path('', views.index),]</p>
+  <p>Теперь вы можете запустить свой сайт с помощью команды в терминале:
+    python manage.py runserver</p>
+
+</div>
+<div>
+  <p>Работа с pip</p>
+  <p>pip freeze - Выводит список установленных библиотек</p>
+  <p>  pip freeze > requirements.txt - Эта команда создает файл requirements.txt,
+    содержащий все установленные пакеты и их соответствующие версии.</p>
+  <p>pip install -r requirements.txt - Воссоздает окружение.</p>
+  <p>Чтобы создать и активировать виртуальную среду, выполните следующие команды:</p>
+ <p># Create a virtual environment<br>
+  python -m venv env_name<br>
+  # Activate the virtual environment (Windows)<br>
+  env_name\Scripts\activate</p>
+</div>
+</body>
+</html>

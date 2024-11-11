@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Главная страница{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <p><a href="http://127.0.0.1:8000/python">Питон</a></p>
+        <h1>Мой интернет-магазин</h1>
+    </header>
+
+    <div class="content">
+        {% block content %}
+        {% for product in products %}
+            <p>{{ product }}</p>
+        {% endfor %}
+    {% endblock %}
+    </div>
+
+    <footer>
+        <p>Все права защищены</p>
+    </footer>
+</body>
+</html>
